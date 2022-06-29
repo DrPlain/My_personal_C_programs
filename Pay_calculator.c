@@ -7,75 +7,66 @@ Project: A C program that calculates weekly pay and gives an output of gross pay
 
 Tax rate: 
 	15% of the first $300
-	20% of the next 150
+	20% of the next $150
 	25%  of the rest
 	
 Assumption:
-	Basic pay rate= rate per hour
-	Over time (in excess of 40hours) = time and a half
+	Basic pay rate is in per hour
+	Over time (in excess of 40hours) = rate * 1.5 per hour
 */
 
-int main()
+/*Declaring constants*/
+# define TAXRATE_300 .15 
+# define TAXRATE_150 .20
+# define TAXRATE_REST .25
+
+int main(void)
 {
-    double hours, gross, net, tax, rate;
+	double hours;
+	double gross;
+	double net;
+	double tax;
+	double rate;
+	
+	printf("Enter the number of hours you worked this week: ");
+	scanf("%lf", &hours);
+	printf("Enter your pay per hour: ");
+	scanf("%lf", &rate);
     
-    printf("Enter the number of hours worked in a week: ");
-    scanf("%lf", &hours);
-    printf("Enter your pay per hour: ");
-    scanf("%lf", &rate);
-    
-    if(hours<=40)
+   if(hours<=40)
     {
     	gross = hours * rate;
-    	printf ("Your gross pay is $%.2lf per week\n", gross);
-    
-    	if(gross<=300)
-    	{
-    		tax = 0.15*gross;
-    		net = gross - tax;
-    		printf("Your tax is $%.2lf\n", tax);
-    		printf("Your net pay is $%.2lf\n", net);
-    	}
-    		else if(gross>300 && gross<=450)
-    		{
-    			tax = (0.15*gross) + (0.2*(gross-300));
-    			net = gross - tax;
-    			printf("Your tax is $%.2lf\n", tax);
-    			printf("Your net pay is $%.2lf\n", net);
-    		}
-    		else
-    		{
-    		tax = ((0.15*gross) + (0.2*(gross-300)) + (0.25*(gross-450)));
-    		net = gross - tax;
-    		printf("Your tax is $%.2lf\n", tax);
-    		printf("Your net pay is $%.2lf\n", net);
-    		}
     }
-   
     	 else
     {
     	gross = (hours * rate);
-    	gross = gross + gross/2;
-    	printf("Your gross pay is $%.2lf per week\n", gross);
-    	if(gross<=300)
+    	gross  +=(hours-40)*1.5; //+= means gross = gross +
+    }
+    
+//calculating tax
+    if(gross<=300)
     	{
-    		tax = 0.15*gross;
-    		net = gross - tax;
-    		printf("Your tax is $%.2lf\n", tax);
-    		printf("Your net pay is $%.2lf\n", net);
+    		tax = gross * TAXRATE_300;
     	}
     		else if(gross>300 && gross<=450)
     		{
-    			tax = (0.15*gross) + (0.2*(gross-300));
-    			net = gross - tax;
-    			printf("Your tax is $%.2lf\n", tax);
-    			printf("Your net pay is $%.2lf\n", net);
+    			tax = gross * TAXRATE_300;
+    			tax += (gross-300) * TAXRATE_150;
     		}
     		else
-    		tax = ((0.15*gross) + (0.2*(gross-300)) + (0.25*(gross-450)));
-    		net = gross - tax;
-    		printf("Your tax is $%.2lf\n", tax);
-    		printf("Your net pay is $%.2lf\n", net);
-    }
+    		{
+    			tax = gross * TAXRATE_300;
+    			tax += (gross-300) * TAXRATE_150;
+    			tax += (gross-450) * TAXRATE_REST;
+    		}
+
+//Calculating net pay
+	net = gross - tax;
+	
+//Printing output
+    		printf("Your gross pay this week is $%.2lf\n", gross);
+    		printf("Your tax this week is $%.2lf\n", tax);
+    		printf("Your net pay this week is $%.2lf\n", net);
+    
     return 0;
 }
