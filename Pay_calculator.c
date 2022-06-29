@@ -3,7 +3,7 @@
 Author: Gideon Obiasor
 Date: 29th June, 2022
 
-Project: A C program that calculates weekly pay abd gives an output of gross pay, taxes and net pay
+Project: A C program that calculates weekly pay and gives an output of gross pay, taxes and net pay
 
 Tax rate: 
 	15% of the first $300
