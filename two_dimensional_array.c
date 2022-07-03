@@ -63,7 +63,7 @@ int main(void)
 			}
 			
 			printf("TABLE 1\n\n");
-			printf("YEAR\t\SUM OF RAINFALL (inches)       AVERAGE\n\n");
+			printf("YEAR\tSUM OF RAINFALL (inches)       AVERAGE\n\n");
 			
 			printf("2015\t\t%.2f\t\t\t%.2f\n", sumRainfallA, sumRainfallA/12);
 			printf("2016\t\t%.2f\t\t\t%.2f\n", sumRainfallB, sumRainfallB/12);
