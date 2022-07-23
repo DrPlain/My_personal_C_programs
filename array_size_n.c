@@ -16,11 +16,15 @@ int main(void)
 	printf("Please enter size of array: ");
 	scanf("%d", &n);
 	
-	/* Allocating memory to store array of n size*/
+	/* Allocating memory to store array of n size
+	 * Memories allocated by malloc are not initialised
+	 * Memories allocated by calloc are initialised to 0
+	 */
+	-
 	int *A = (int*) malloc(n*sizeof(int)); 
 	
 	for (int i = 0; i < n; i++)
-		A[i] = i + 1; /*same as *(A+i) = 100+i*/
+		A[i] = i + 1;
 	
 	for (int i = 0; i < n; i++)
 	{
@@ -31,5 +35,6 @@ int main(void)
 			printf(", ");
 		}
 	}
+	free(A);
 	return 0;
 }
