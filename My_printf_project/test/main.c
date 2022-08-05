@@ -3,8 +3,8 @@
 
 int main(void)
 {
-   int num = _printf("Good morning, my name is %s\n", "Gideon");
-    printf("%d\n", num);
+   _printf("My name is %s, I am %d years old\n", "Gideon", 300);
+    printf("My name is %s, I am %d years old\n", "Gideon", 300);
 
     return (0);
 }
