@@ -9,7 +9,7 @@ int main(void)
     size_t n = 0;
     char *token;
     const char *delim = " \\";
-    int num_token, i;
+    int num_token, i = 0;
     char **argv;
 
     /* Setting up the prompt */
@@ -82,6 +82,14 @@ int main(void)
         printf(">>> %s\n", argv[i]);
         printf("The user entered %d number(s) of token(s) including NULL\n", num_token);
         /******************************/
+    while(i < num_token)
+    {
+        free(argv[i]);
+        i++;
+    }
+    free(duplicate_buffer);
+    free(argv);
+    free(token);
 
     return (0);
 }
