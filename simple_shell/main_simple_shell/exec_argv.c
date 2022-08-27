@@ -19,7 +19,7 @@ void exec_argv(char **argv)
     {
         if (execve(argv[0], argv, __environ) == -1)
         {
-            printf("Command %s: Not found\n", argv[0]);
+            printf("%s: command not found\n", argv[0]);
             exit(EXIT_FAILURE);
         };
         

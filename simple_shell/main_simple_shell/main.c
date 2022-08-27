@@ -47,6 +47,7 @@ int main()
 
         free(argv);
         free(buffer);
+        free(duplicate_buffer);
     }
 
     return (0);
