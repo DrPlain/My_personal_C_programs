@@ -26,7 +26,7 @@ int main(void)
         printf("Exiting shell...");
         return (-1);
     }
-    printf(">>> %s\n", buffer);
+    printf("$ %s\n", buffer);
 
     /* Duplicate buffer because after call to strtok(), */ 
     /* string passed to it is destroyed */
@@ -50,7 +50,7 @@ int main(void)
     
     /* Allocate space for **argv to store POINTERS tokenized strings */
     argv = malloc(sizeof(char *) * num_token);
-    if (duplicate_buffer == NULL)
+    if (argv == NULL)
     {
         printf("Malloc unable to allocate space for argv\n");
         free(duplicate_buffer);
@@ -63,7 +63,7 @@ int main(void)
     while (token != NULL)
     {
         argv[i] = malloc(sizeof(char) * strlen(token));
-        if (duplicate_buffer == NULL)
+        if (argv[i] == NULL)
         {
             printf("Malloc unable to allocate space for argv[%d]\n", i);
             free(duplicate_buffer);

@@ -1,1 +1,0 @@
-This repository contains a collaborative project with a colleague at ALX school. The project is a program that functions like the standard printf funtion and in addition returns an integer representing the number of characters displayed in each function call.

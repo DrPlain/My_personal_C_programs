@@ -20,6 +20,7 @@ int count_token(char *buffer, char *delim)
         count++;
     }
 
+    free(token);
     return (count);
 }
 
@@ -33,6 +34,7 @@ char **tokenize_line(char *buffer, char *delim, int num_tokens)
     if (argv == NULL)
     {
         perror("Malloc unable to allocate space\n");
+        free(buffer);
         exit(EXIT_FAILURE);
     }
     

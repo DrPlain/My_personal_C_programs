@@ -19,6 +19,7 @@ int main()
         if (num_read < 0)
         {
             perror("Error reading line\n");
+            free(buffer);
             exit(EXIT_FAILURE);
         }
 
@@ -26,6 +27,7 @@ int main()
         if (duplicate_buffer == NULL)
         {
             perror("Malloc unable to allocate memory\n");
+            free(duplicate_buffer);
             return (-1);
         }
         _strcpy(duplicate_buffer, buffer);
