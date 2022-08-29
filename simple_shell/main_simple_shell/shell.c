@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "main.h"
+#include "shell.h"
 
 int main()
 {
@@ -28,7 +28,7 @@ int main()
             perror("Malloc unable to allocate memory\n");
             return (-1);
         }
-        strcpy(duplicate_buffer, buffer);
+        _strcpy(duplicate_buffer, buffer);
 
         num_tokens = count_token(duplicate_buffer, delim);
         argv = tokenize_line(buffer, delim, num_tokens);

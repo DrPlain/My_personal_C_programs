@@ -17,6 +17,6 @@ int builtin_size();
 void my_exit(char **argv);
 void cd(char **argv);
 void help(char **argv);
-
-
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
 #endif

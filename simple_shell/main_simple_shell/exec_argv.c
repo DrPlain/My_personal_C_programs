@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
-#include "main.h"
+#include "shell.h"
 #include <string.h>
 
 char **__environ;
@@ -23,7 +23,7 @@ void exec_argv(char **argv)
 
     for (i = 0; i < builtin_size; i++)
     {
-        if (strcmp(argv[0], my_builtin[i].command) == 0)
+        if (_strcmp(argv[0], my_builtin[i].command) == 0)
         {
             my_builtin[i].func(argv);
             return;
