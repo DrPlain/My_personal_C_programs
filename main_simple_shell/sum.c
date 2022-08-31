@@ -1,8 +1,8 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main()
+int main(void)
 {
-    int a = 10;
+    int a = 30;
     int b = 50;
 
     printf("%d\n", a + b);
