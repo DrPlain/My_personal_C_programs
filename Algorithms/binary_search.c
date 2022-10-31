@@ -1,28 +1,44 @@
 #include <stdio.h>
 
+void binary_search(int *array, int size, int find_num);
+
 int main(void)
 {
     int arr[] = {2, 4, 6, 8, 13, 16, 23, 45, 67, 80};
-    int l, r, n, i, num, mid;
-    n = sizeof(arr) / sizeof(arr[0]);
-    l = 0;
-    r = n - 1;
+    int size, num;
+
+    size = sizeof(arr) / sizeof(arr[0]);
     printf("Enter number to search: ");
     scanf("%d", &num);
+    binary_search(arr, size, num);
+
+    return (0);
+}
+
+void binary_search(int *array, int size, int find_num)
+/*
+ * binary_search - finds a number in array using binary search algorithm
+ * @array: Array to be searched
+ * @size: Size of the array
+ * @find_num: Number to be searched
+ * Return: Nothing
+ */
+{
+    int l = 0, r = size - 1, mid;
 
     while (l < r)
     {
         mid =  (l + r) / 2;
-        if (num == arr[mid])
+        if (find_num == array[mid])
         {
             printf("\nFound number at index %d\n", mid);
-            return 0;
+            return;
         }
-        else if (num > arr[mid])
+        else if (find_num > array[mid])
         {
-            l = mid + 1;   
+            l = mid + 1;
         }
-        else if (num < arr[mid])
+        else if (find_num < array[mid])
         {
             r = mid - 1;
         }
