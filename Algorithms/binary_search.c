@@ -18,11 +18,11 @@ int main(void)
             printf("\nFound number at index %d\n", mid);
             return 0;
         }
-        else if (num > mid)
+        else if (num > arr[mid])
         {
             l = mid + 1;   
         }
-        else
+        else if (num < arr[mid])
         {
             r = mid - 1;
         }
