@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include "algorithm.h"
+#include <time.h>
 
 int main(void)
 {
-    int A[] = {2,6,8,3,7,1,11,8,21,34};
+    clock_t begin = clock();
+
+    int A[] = {50,2,6,8,3,7,1,0,11,8,21,34};
     int lb, ub, i, size;
     lb = 0;
     size = (sizeof(A) / sizeof(A[0]));
@@ -11,6 +14,10 @@ int main(void)
 
     mergeSort(A, lb, ub);
     print_array(A, size);
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("%f seconds\n", time_spent);
     return 0;
 }
 

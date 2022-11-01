@@ -1,14 +1,19 @@
 #include <stdio.h>
 #include "algorithm.h"
+#include <time.h>
 
 int main(void)
 {
+    clock_t begin = clock();
     int size;
-    int array[] = {3,6,1,8,2,9,4,56,34,21,34,7,76,34};
+    int array[] = {50,2,6,8,3,7,1,0,11,8,21,34};
 
     size = sizeof(array) / sizeof(array[0]);
     improved_bubble_sort(array, size);
-    
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("%f seconds\n", time_spent);
 }
 
 void bubble_sort(int *array, int size)
