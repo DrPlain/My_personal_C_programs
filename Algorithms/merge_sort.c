@@ -4,20 +4,24 @@
 int main(void)
 {
     int A[] = {2,6,8,3,7,1,11,8,21,34};
-    int lb, ub, i;
+    int lb, ub, i, size;
     lb = 0;
-    ub = (sizeof(A) / sizeof(A[0])) - 1;
-    mergeSort(A, lb, ub);
-    for (i = lb; i < ub + 1; i++)
-    {
-        printf("%d ", A[i]);
-    }
-    putchar('\n');
+    size = (sizeof(A) / sizeof(A[0]));
+    ub = size - 1;
 
-    
+    mergeSort(A, lb, ub);
+    print_array(A, size);
     return 0;
 }
 
+/*
+ * mergeSort - function that recursively divides the array into
+ * sorted sub-arrays and merges the sorted sub-arrays
+ * @A: Array to be sorted
+ * @lb: lower boundary of array
+ * @ub: Upper boundary of array
+ * Return: void
+ */
 void mergeSort(int *A, int lb, int ub)
 {
     int mid;
@@ -31,6 +35,14 @@ void mergeSort(int *A, int lb, int ub)
     }
 }
 
+/*
+ * merge - Merges the sorted sub-array
+ * @A: Main array
+ * @lb: Lower boundary of array
+ * @mid: Mid index of array
+ * @ub: Upper boundary of array
+ * Return: void
+ */
 void merge(int *A, int lb, int mid, int ub)
 {
     int B[ub + 1]; /*Decare an array to store sorted elements*/
@@ -72,7 +84,7 @@ void merge(int *A, int lb, int mid, int ub)
             k++;
         }
     }
-
+    /*Copy the new sorted array into initial array*/
     for (k = lb; k <= ub; i++)
     {
         A[k] = B[k];
