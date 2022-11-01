@@ -1,8 +1,5 @@
 #include <stdio.h>
-
-void print_array(int *array, int size);
-void bubble_sort(int *array, int size);
-void improved_bubble_sort(int *array, int size);
+#include "algorithm.h"
 
 int main(void)
 {
@@ -56,14 +53,14 @@ void improved_bubble_sort(int *array, int size)
     pass = size - 1;
 
         /*Outer loop is for number of passes in n sized array which is 'n - 1'*/
+        /*Inner loop controls the number of comparisons for each pass*/
+        /*1. Improvement is on the fact that number of comparisons in each pass*/
+        /*is == pass - i*/
+        /*2. Loop breaks if array gets sorted before reaching the last pass*/
+        /* Any pass without a swap means the array is already sorted*/
         for (i = 0; i < pass; i++)
         {
             flag = 0;
-            /*Inner loop controls the number of comparisons for each pass*/
-            /*1. Improvement is on the fact that number of comparisons in each pass*/
-            /*is == pass - i*/
-            /*2. Loop breaks if array gets sorted before reaching the last pass*/
-
             for (j = 0; j < pass - i; j++)
             {
                 if (array[j] > array[j + 1])
@@ -79,15 +76,4 @@ void improved_bubble_sort(int *array, int size)
         }
         print_array(array, size);
 }
-
-void print_array(int *array, int size)
-{
-    int i = 0;   
-    while (i < size)
-    {
-        printf("%d ", array[i]);
-        i++;
-    }
-    putchar('\n');
-}
-    
+   

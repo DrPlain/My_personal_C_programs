@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-void binary_search(int *array, int size, int find_num);
+#include "algorithm.h"
 
 int main(void)
 {
